@@ -1,0 +1,214 @@
+html{
+    overflow-x: hidden;
+}
+body {
+    display: flex;
+    background: #f8edeb;
+}
+
+.game-container {
+    width: 90%;
+    height: 730px;
+    position: absolute;
+    border-radius: 15px;
+    left: 80px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.border-left {
+    width: 80px;
+    height: 790px;
+    position:  absolute;
+    background-color: white;
+    z-index: +2;
+}
+
+.border-right {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+    left: 580px;
+}
+
+.border-top {
+    width: 660px;
+    height: 50px;
+    position:  absolute;
+    background-color: white;
+    z-index: +2;
+    top: -50px;
+}
+
+.sky {
+    background-image: url('background.webp');
+    width: 100%;
+    height: 580px;
+    position: absolute;
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ground {
+    background-image: url('bottom-background.png');
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    top: 580px;
+    border-radius: 15px;
+    z-index: +1;
+}
+
+.bird {
+    background-image: url('flappy-bird.png');
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    left: 220px;
+    bottom: 100px;
+}
+
+.obstacle {
+    background-image: url('flappybird-pipe.png');
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
+.topObstacle {
+    background-image: url('flappybird-pipe.png');
+    transform: rotate(180deg);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
+@keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+  
+  @-webkit-keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+
+  .ground-container {
+      height: 150px;
+      width: 100%;
+      left: 0px;
+      position:  absolute;
+      z-index: +1;
+  }
+  
+  .ground-moving {
+    position: absolute;
+    top: 580px;
+    height: 150px;
+    background-image: url('bottom-background.png');
+    background-repeat: repeat-x;
+    animation: slideright 500s infinite linear;
+    -webkit-animation: slideright 500s infinite linear;
+    width: 100%;
+    z-index: +1;
+    border-radius: 15px;
+  }
+  .score{
+    position: absolute;
+    background-color: #f8edeb;
+    right: 10%;
+    top: 20%;
+    width: 150px;
+    padding: 0 1%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: +1;
+    font-family: sans-serif;
+    color: #1d3557;
+  }
+  .hide-score{
+      display: none;
+  }
+  .number{
+      position: absolute;
+      top: 23px;
+      width: 50px;
+      height: 40px;
+      right: 10%;
+      color: #1d3557;
+      font-size: 2rem;
+     text-align: center;
+     transition: all 0.3s ease-in;
+  }
+.game-over{
+   position: absolute;
+   z-index: +1;
+   background-color: aliceblue;
+   width: 40%;
+   height: 38%;
+   top: 26%;
+   left: 28%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border-radius: 15px;
+   background:#f8edeb;
+   color: #1d3557;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   display: none;
+}
+.notify{
+    display: block;
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.game-over button{
+    width: 23%;
+    height: 20%;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1d3557;
+    color: #f8edeb;
+    font-size: 1.3rem;
+    border: none;
+    transition: all 5s ease-in;
+    animation: button-transform 5s infinite;
+}
+button:hover{
+    transform: scale(1.07);
+}
+.final-score{
+    font-size: 1.8rem;
+    padding: 0 1%;
+}
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    font-size: 1.3rem;
+}
+@keyframes button-transform {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
